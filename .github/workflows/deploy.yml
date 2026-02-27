@@ -1,0 +1,32 @@
+name: Salesforce CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Triggered when code is pushed to main
+
+jobs:
+  deploy-to-main:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout the code from GitHub
+      - name: 'Checkout source code'
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      # 2. Install Salesforce CLI
+      - name: 'Install Salesforce CLI'
+        run: |
+          npm install @salesforce/cli --global
+
+      # 3. Authenticate to Main Org
+      - name: 'Authenticate to Main Org'
+        run: |
+          echo "${{ secrets.MAIN_SFDX_URL }}" > ./main_auth.txt
+          sf org login sfdx-url -f ./main_auth.txt -a mainOrg -d
+
+      # 4. Deploy source to Main Org
+      - name: 'Deploy Source'
+        run: |
+          sf project deploy start --target-org mainOrg --source-dir force-app
