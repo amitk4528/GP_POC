@@ -163,7 +163,6 @@
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <searchLayouts>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CURRENCY_ISO_CODE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Hiring_Manager__c</customTabListAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
