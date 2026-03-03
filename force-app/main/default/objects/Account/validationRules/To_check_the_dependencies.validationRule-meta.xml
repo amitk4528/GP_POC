@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>To_check_the_dependencies</fullName>
-    <active>false</active>
-    <description>Error message should reflect when industry is present but not website</description>
-    <errorConditionFormula>AND( NOT  ISBLANK( TEXT( Industry ) ) ,  ISBLANK( Website )  )</errorConditionFormula>
-    <errorDisplayField>Website</errorDisplayField>
-    <errorMessage>Since Industry field is having some value, you need to enter website</errorMessage>
-</ValidationRule>
